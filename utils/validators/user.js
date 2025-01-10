@@ -8,7 +8,6 @@ const prisma = require('../../prisma/client');
 const validateUser = [
     body('username')
         .notEmpty().withMessage('Username is required')
-        .isEmail().withMessage('Username is invalid')
         .custom(async (value, { req }) => {
             if (!value) {
                 throw new Error('username is required');
